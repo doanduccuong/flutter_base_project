@@ -1,9 +1,14 @@
+import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'dart:developer' as developer;
-class SharedPreferencesHelper {
+
+class LocalStorage {
   static const _introKey = '_introKey';
 
   static const _authKey = '_authKey';
+  final FlutterSecureStorage _storage;
+
+  LocalStorage._(this._storage);
 
   //Get authKey
   static Future<String> getApiTokenKey() async {
@@ -17,7 +22,7 @@ class SharedPreferencesHelper {
   }
 
   //Set authKey
-  static void setApiTokenKey(String apiTokenKey) async {
+  static void saveToken(String apiTokenKey) async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     await prefs.setString(_authKey, apiTokenKey);
   }
