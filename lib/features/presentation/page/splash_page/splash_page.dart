@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_base_project/features/domain/repositories/use_repository.dart';
 import 'package:flutter_base_project/features/presentation/page/splash_page/splash_page_bloc/splash_page_cubit.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-
 import '../../../../configs/app_images.dart';
 import '../../../domain/repositories/auth_repository.dart';
 

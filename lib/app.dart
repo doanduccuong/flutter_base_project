@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_base_project/core/platform/user_rest_client/user_rest_client.dart';
+import 'package:flutter_base_project/route_config/app_route_delegate.dart';
+import 'package:flutter_base_project/route_config/app_route_information_parser.dart';
 import 'package:flutter_base_project/route_config/route_config.dart';
 import 'package:flutter_base_project/setting/app_cubit.dart';
 import 'package:flutter_base_project/setting/app_setting/app_setting_cubit.dart';
@@ -75,9 +77,9 @@ class _MyAppState extends State<MyApp> {
               onTap: () {
                 _hideKeyboard(context);
               },
-              child: MaterialApp(
+              child: MaterialApp.router(
                 title: AppConfigs.appName,
-                home: const SplashPage(),
+                // home: const SplashPage(),
                 theme: AppThemes(
                   isDarkMode: false,
                   primaryColor: state.primaryColor,
@@ -86,10 +88,11 @@ class _MyAppState extends State<MyApp> {
                   isDarkMode: true,
                   primaryColor: state.primaryColor,
                 ).theme,
-                navigatorKey: AppConfigs.navigatorKey,
+                // navigatorKey: AppConfigs.navigatorKey,
+                // initialRoute: RouteConfig.homePage,
+                // onGenerateRoute: router.generateRoute,
                 themeMode: state.themeMode,
-                initialRoute: RouteConfig.homePage,
-                onGenerateRoute: router.generateRoute,
+
                 localizationsDelegates: const [
                   GlobalMaterialLocalizations.delegate,
                   GlobalWidgetsLocalizations.delegate,
@@ -98,6 +101,8 @@ class _MyAppState extends State<MyApp> {
                 ],
                 locale: state.locale,
                 supportedLocales: S.delegate.supportedLocales,
+                routerDelegate: HomeRouterDelegate(),
+                routeInformationParser: HomeRouteInformationParser(),
               ),
             );
           },
