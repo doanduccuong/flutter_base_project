@@ -7,6 +7,8 @@ Route<dynamic>? generateRoute(RouteSettings settings) {
   switch (settings.name) {
     case RouteConfig.signInPage:
       return MaterialPageRoute(builder: (_) =>  const SignInPage(),settings: settings);
+    case RouteConfig.homePage:
+      return MaterialPageRoute(builder: (_) =>  const SignInPage(),settings: settings);
     // case RouteConfig.settingPage:
     //   return MaterialPageRoute(builder: (_) =>  const SettingPage(),settings: settings);
     default:

@@ -1,13 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_base_project/core/platform/user_rest_client/user_rest_client.dart';
-import 'package:flutter_base_project/route_config/app_route_delegate.dart';
-import 'package:flutter_base_project/route_config/app_route_information_parser.dart';
+
 import 'package:flutter_base_project/route_config/route_config.dart';
 import 'package:flutter_base_project/setting/app_cubit.dart';
 import 'package:flutter_base_project/setting/app_setting/app_setting_cubit.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'features/presentation/page/splash_page/splash_page.dart';
 import 'generated/l10n.dart';
 import 'router/router.dart' as router;
 import 'configs/app_configs.dart';
@@ -77,7 +75,7 @@ class _MyAppState extends State<MyApp> {
               onTap: () {
                 _hideKeyboard(context);
               },
-              child: MaterialApp.router(
+              child: MaterialApp(
                 title: AppConfigs.appName,
                 // home: const SplashPage(),
                 theme: AppThemes(
@@ -88,11 +86,10 @@ class _MyAppState extends State<MyApp> {
                   isDarkMode: true,
                   primaryColor: state.primaryColor,
                 ).theme,
-                // navigatorKey: AppConfigs.navigatorKey,
-                // initialRoute: RouteConfig.homePage,
-                // onGenerateRoute: router.generateRoute,
+                navigatorKey: AppConfigs.navigatorKey,
+                initialRoute: RouteConfig.homePage,
+                onGenerateRoute: router.generateRoute,
                 themeMode: state.themeMode,
-
                 localizationsDelegates: const [
                   GlobalMaterialLocalizations.delegate,
                   GlobalWidgetsLocalizations.delegate,
@@ -101,8 +98,6 @@ class _MyAppState extends State<MyApp> {
                 ],
                 locale: state.locale,
                 supportedLocales: S.delegate.supportedLocales,
-                routerDelegate: HomeRouterDelegate(),
-                routeInformationParser: HomeRouteInformationParser(),
               ),
             );
           },
