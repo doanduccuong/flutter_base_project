@@ -1,7 +1,7 @@
 import 'dart:convert';
 import 'dart:developer' as logger;
 import 'package:dio/dio.dart';
-import 'package:flutter_base_project/features/data/data_source/local_storage.dart';
+import 'package:flutter_base_project/domain/data/data_source/local_storage.dart';
 
 class ApiInterceptors extends InterceptorsWrapper {
   @override

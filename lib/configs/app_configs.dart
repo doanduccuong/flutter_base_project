@@ -2,22 +2,20 @@ import 'dart:ui';
 
 import 'package:flutter/cupertino.dart';
 
-import 'app_envi_config.dart';
 
 class AppConfigs {
   AppConfigs._();
 
-  static const String appName = "Newwave Solution JSC";
+  static const String appName = "Doan Duc Cuong";
 
-  static Environment env = Environment.prod;
 
   static GlobalKey<NavigatorState> navigatorKey = GlobalKey<NavigatorState>();
 
 
-  ///API Env
-  static String get baseUrl => env.baseUrl;
-
-  static String get envName => env.envName;
+  // ///API Env
+  // static String get baseUrl => env.baseUrl;
+  //
+  // static String get envName => env.envName;
 
   ///Paging
   static const pageSize = 40;
