@@ -1,4 +1,3 @@
-import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'dart:developer' as developer;
 
@@ -6,9 +5,8 @@ class LocalStorage {
   static const _introKey = '_introKey';
 
   static const _authKey = '_authKey';
-  final FlutterSecureStorage _storage;
 
-  LocalStorage._(this._storage);
+  LocalStorage._();
 
   //Get authKey
   static Future<String> getApiTokenKey() async {
